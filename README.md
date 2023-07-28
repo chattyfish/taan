@@ -19,7 +19,7 @@ In addition, there is another model that is fine-tuned by extracting from variou
 
 The specific training method for TAAN involves preparing N+1 identical base models, such as the LLaMA2 - 13B base model. N sets of different professional datasets are prepared to continue training models 1 to N. Due to the model's forgetting problem, the evaluation standard is limited to the improvement of the model's test scores in various professional fields, which serves as the Advisor. Then, random selections are made from datasets 1 to N, and classification prompts are appended to the data to fine-tune model N+1 until it can correctly identify the type of knowledge, serving as the TAG.
 
-Then, the entire TAAN network is evaluated using the MMLU (Multi-Modal Learning Understanding) metric. If the average MMLU score improves, the network training is considered successful.
+Then, the entire TAAN network is evaluated using the MMLU (Multi-task Language Understanding) metric. If the average MMLU score improves, the network training is considered successful.
 
 TAAN's advantages include:
 
