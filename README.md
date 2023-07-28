@@ -22,19 +22,20 @@ The specific training method for TAAN involves preparing N+1 identical base mode
 Then, the entire TAAN network is evaluated using the MMLU (Multi-Modal Learning Understanding) metric. If the average MMLU score improves, the network training is considered successful.
 
 The advantages of TAAN will be:
-Efficiency: TAAN leverages the strengths of multiple specialized models, enabling it to handle a diverse range of tasks more efficiently than a singular, generalized model.
 
-Expertise: Each Advisor within TAAN is fine-tuned on a distinct professional dataset, allowing it to become proficient in that particular domain. This level of expertise can lead to superior performance on tasks within the Advisor's area of specialization.
+*Efficiency: TAAN leverages the strengths of multiple specialized models, enabling it to handle a diverse range of tasks more efficiently than a singular, generalized model.
 
-Scalability: TAAN is designed with scalability in mind, with the capacity to incorporate additional Advisors as required to accommodate more types of knowledge. This adaptability makes it suitable for evolving or changing task demands.
+*Expertise: Each Advisor within TAAN is fine-tuned on a distinct professional dataset, allowing it to become proficient in that particular domain. This level of expertise can lead to superior performance on tasks within the Advisor's area of specialization.
 
-Robustness: The implementation of a dedicated Transformer As Gate (TAG) for task routing enhances the network's robustness. If an Advisor underperforms or fails, the TAG can reroute the task to another Advisor or the Generic Advisor.
+*Scalability: TAAN is designed with scalability in mind, with the capacity to incorporate additional Advisors as required to accommodate more types of knowledge. This adaptability makes it suitable for evolving or changing task demands.
 
-Versatility: The inclusion of a Generic Advisor ensures TAAN's ability to manage tasks that do not fit into the specific domains of the other Advisors, making TAAN a versatile solution capable of handling a broad spectrum of tasks.
+*Robustness: The implementation of a dedicated Transformer As Gate (TAG) for task routing enhances the network's robustness. If an Advisor underperforms or fails, the TAG can reroute the task to another Advisor or the Generic Advisor.
 
-Ease of Training: All Advisors and the TAG in TAAN continue training on top of the base model without modifying the original model, making TAAN easy to implement and train.
+*Versatility: The inclusion of a Generic Advisor ensures TAAN's ability to manage tasks that do not fit into the specific domains of the other Advisors, making TAAN a versatile solution capable of handling a broad spectrum of tasks.
 
-Backup Readiness: In the event of an Advisor failure, the remaining models, due to their shared origin with the base model, can take over and perform the missing tasks to a certain extent. This makes TAAN highly fault-tolerant and flexible when deploying models.
+*Ease of Training: All Advisors and the TAG in TAAN continue training on top of the base model without modifying the original model, making TAAN easy to implement and train.
+
+*Backup Readiness: In the event of an Advisor failure, the remaining models, due to their shared origin with the base model, can take over and perform the missing tasks to a certain extent. This makes TAAN highly fault-tolerant and flexible when deploying models.
 
 References:
 
