@@ -10,7 +10,7 @@ The Advisors Alliance Network (TAAN) is a solution that combines the Mixture of 
 
 The architecture of TAAN is similar to MoE, with a gating system. However, unlike the typical MoE architecture, the gating of TAAN is handled by a dedicated Transformer model. This Transformer model, known as the Transformer As Gate (TAG), originates from the same base model as the other expert models but is specifically fine-tuned and optimized for its ability to recognize, but not answer, various expert knowledge.
 
-When TAG receives an external task, such as a Q&A task, it only identifies professional and industry questions, and then forwards the original question to the corresponding Advisor for processing. Unlike MoE, after task processing, the results are returned directly without election or aggregation.
+When TAG receives an external task, such as a Q&A task, it only identifies professional and industry questions, and then forwards the original question to the corresponding Advisor for processing. Unlike MoE, after task processing, the results are returned directly without election or aggregation. According to research[5], continued training of the base model in specialized fields helps to improve evaluation scores. Therefore, further training each advisor in their respective areas of expertise contributes to the enhancement of individual sub-scores, subsequently increasing the overall average score of the TAAN network on the MMLU platform.
 
 In addition, there is another model that is fine-tuned by extracting from various classification data, called the Generic Advisor, which handles tasks that TAG cannot classify.
 
@@ -69,6 +69,15 @@ References:
       author={Nan Du and Yanping Huang and Andrew M. Dai and Simon Tong and Dmitry Lepikhin and Yuanzhong Xu and Maxim Krikun and Yanqi Zhou and Adams Wei Yu and Orhan Firat and Barret Zoph and Liam Fedus and Maarten Bosma and Zongwei Zhou and Tao Wang and Yu Emma Wang and Kellie Webster and Marie Pellat and Kevin Robinson and Kathleen Meier-Hellstern and Toju Duke and Lucas Dixon and Kun Zhang and Quoc V Le and Yonghui Wu and Zhifeng Chen and Claire Cui},
       year={2022},
       eprint={2112.06905},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+[5] @misc{gururangan2020dont,
+      title={Don't Stop Pretraining: Adapt Language Models to Domains and Tasks}, 
+      author={Suchin Gururangan and Ana Marasović and Swabha Swayamdipta and Kyle Lo and Iz Beltagy and Doug Downey and Noah A. Smith},
+      year={2020},
+      eprint={2004.10964},
       archivePrefix={arXiv},
       primaryClass={cs.CL}
 }
