@@ -14,7 +14,7 @@ When TAG receives an external task, such as a Q&A task, it only identifies profe
 
 In addition, there is another model that is fine-tuned by extracting from various classification data, called the Generic Advisor, which handles tasks that TAG cannot classify.
 
-<img width="516" alt="image" src="https://github.com/chattyfish/taa/assets/131679280/21346901-8db7-4add-9b53-c109876f1419">
+<img width="516" alt="image" src="https://github.com/chattyfish/taa/blob/main/taan_general_diagram.png">
 
 
 
