@@ -1,10 +1,31 @@
-# TAA - The Advisors Alliance Network of Mixture of Experts
+# TAAN - The Advisors Alliance Network of Mixture of Experts
 
 In the field of artificial intelligence, the combination of smaller AI models to form a larger, more complex model is a topic of ongoing research. Various strategies have been proposed and implemented to achieve this goal.
 
 The Mixture of Experts (MoE) model [1] is a well-known approach that combines multiple "expert" models, each of which specializes in a different part of the input space. The idea is to weight the outputs of these experts according to their competence in the given input, thereby creating a more powerful and flexible model. The Switch Transformer (ST) [2] is a variant of the Transformer model that replaces the dense feed-forward network (FFN) layer in the Transformer with a sparse Switch FFN layer. This layer operates independently on tokens in the sequence and routes them to multiple FFN experts. The Switch FFN layer returns the output of the chosen FFN, multiplies it by the router threshold, and then merges it. This approach allows the model to dynamically allocate computational resources, focusing on the most relevant experts for each specific task. The Expert Choice (EC) method [3] sets up a group of experts with a predetermined buffer capacity. It assigns the top k tokens to the experts, generates a score matrix from the tokens to the experts, and then makes routing decisions based on this matrix. This approach ensures that each token can be routed to a variable number of experts, and each expert can have a fixed bucket size, improving training convergence time and performance in fine-tuning tasks. The Generalist Language Model (GLaM) [4] uses a sparsely-activated mixture-of-experts architecture to increase model capacity while significantly reducing training costs compared to dense variants. By focusing on the relative importance of different tokens and allowing each token to be routed to a variable number of experts, GLaM achieves higher performance in a range of tasks.
 
 In addition to the Mixture of Experts (MoE) method, there are several other strategies for combining AI model such as bagging and boosting, involve training multiple models and combining their predictions to reduce overfitting and improve robustness. Stacking generalization combines models hierarchically, using the outputs of multiple models as inputs to a higher-level model. Federated learning trains models across multiple devices or servers, each with its own local dataset, and aggregates the learned parameters to form a global model. Neural Architecture Search (NAS) automatically finds the best neural network architecture for a given task, combining the best components from a search space of models.
+
+The Advisors Alliance Network (TAAN) is a solution that combines the Mixture of Experts (MoE) and model stacking methods. In simple terms, TAAN is composed of a series of homogeneous Transformer models that are fine-tuned to different characteristics and stacked together. It consists of N+2 models, where N models are fine-tuned for different types of expert knowledge, referred to as Advisors.
+
+The architecture of TAAN is similar to MoE, with a gating system. However, unlike the typical MoE architecture, the gating of TAAN is handled by a dedicated Transformer model. This Transformer model, known as the Transformer As Gate (TAG), originates from the same base model as the other expert models but is specifically fine-tuned and optimized for its ability to recognize, but not answer, various expert knowledge.
+
+When TAG receives an external task, such as a Q&A task, it only identifies professional and industry questions, and then forwards the original question to the corresponding Advisor for processing. Unlike MoE, after task processing, the results are returned directly without election or aggregation.
+
+In addition, there is another model that is fine-tuned by extracting from various classification data, called the Generic Advisor, which handles tasks that TAG cannot classify.
+
+           Input
+             |
+             V
+Transformer As Gate (TAG)
+---------------------------------------------
+  |     |     |     |     |
+  V     V     V     V     V
+Adv1  Adv2  Adv3  ...  AdvN  Generic Advisor
+  |     |     |     |     |
+  V     V     V     V     V
+---------------------------------------------
+           Output
 
 
 
