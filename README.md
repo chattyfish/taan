@@ -14,18 +14,16 @@ When TAG receives an external task, such as a Q&A task, it only identifies profe
 
 In addition, there is another model that is fine-tuned by extracting from various classification data, called the Generic Advisor, which handles tasks that TAG cannot classify.
 
-           Input
-             |
-             V
+Input
+|
+V
 Transformer As Gate (TAG)
----------------------------------------------
-  |     |     |     |     |
-  V     V     V     V     V
-Adv1  Adv2  Adv3  ...  AdvN  Generic Advisor
-  |     |     |     |     |
-  V     V     V     V     V
----------------------------------------------
-           Output
+| | | | |
+V V V V V
+Adv1 Adv2 Adv3 ... AdvN Generic Advisor
+| | | | |
+V V V V V
+Output1 Output2 Output3 ... OutputN Generic Output
 
 
 
