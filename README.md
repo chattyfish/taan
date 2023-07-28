@@ -1,4 +1,4 @@
-# TAA - The Advisors Alliance framework of Mixture of Experts
+# TAA - The Advisors Alliance Network of Mixture of Experts
 
 In the field of artificial intelligence, the combination of smaller AI models to form a larger, more complex model is a topic of ongoing research. Various strategies have been proposed and implemented to achieve this goal.
 
